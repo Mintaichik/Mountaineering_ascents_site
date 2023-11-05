@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <article>
+        <!-- Здесь при рендеринге подставляется идентификатор записи (car_id), который при нажатии кнопки "СОХРАНИТЬ"
+             активирует функцию в router.py:
+             @app.route('/edit/<int:id>', methods=['POST'])
+             def edit_data(car_id: int):
+        -->
+        <form id="editform" action="/edit/{{ data_id}}" method="post">
+            <fieldset>
+                <legend>РЕДАКТИРОВАНИЕ</legend>
+                <p><label for="mountainNameInput">Гора : </label><br><input type="text" name="mountainNameInput" value="{{ edit_data[1] }}"></p>
+                <p><label for="difficultOfClimbingInput">Сложность восхождения : </label><br><input type="text" name="difficultOfClimbingInput" value="{{ edit_data[2] }}"></p>
+                <p><label for="countryInput">Страна : </label><br><input type="text" name="countryInput" value="{{ edit_data[3] }}"></p>
+                <p><label for="guideInput">Гид : </label><br><input type="text" name="guideInput" value="{{ edit_data[4] }}"></p>
+                <p><label for="guideQualificationInput">Квалификация гида : </label><br><input type="text" name="guideQualificationInput" value="{{ edit_data[5] }}"></p>
+
+            </fieldset>
+            <p><input type="submit" id="sendbtn" value="СОХРАНИТЬ"></p>
+        </form>
+    </article>
+
+{% endblock %}

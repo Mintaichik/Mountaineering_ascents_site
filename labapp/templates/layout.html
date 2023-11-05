@@ -1,0 +1,46 @@
+<html>
+
+<head>
+		<meta charset="utf-8">
+		<title>{{title}}</title>
+		<link rel="stylesheet" href="/static/stylesheets/new_style.css">
+		<script type="text/javascript" src="/static/javascripts/jquery-3.6.0.min.js"></script>
+</head>
+		<body>
+			<div class="wrapper">
+				<header>
+					<div class="heading">
+						<h1 id="head_name">{{page_name}}</h1>
+					</div>
+				</header>
+				{% if navmenu %}
+					<nav>
+						<ul class="top-menu">
+							{% for item in navmenu %}
+								<li><a href="{{item.addr}}">{{item.name}}</a></li>
+							{% endfor %}
+						</ul>
+					</nav>
+				{% endif %}
+				<main id="{{page_name}}">
+					{% block content %}{% endblock %}
+				</main>
+			</div>
+			<footer>
+				<div class="footer">
+					<div id="social">
+						<h3>SOCIAL NETWORKS</h3>
+						<a href="https://vk.com/pobeg_iz_goroda_100trop" class="social-icon vkontakte"></a>
+						<a href="https://www.instagram.com/pobeg_iz_goroda_100trop/" class="social-icon inst"></a>
+					</div>
+					<div class = "phone">
+						С радостью ответим на интересующие вопросы по номеру:<br>8-937-167-23-07
+					</div>
+				</div>
+			</footer>
+			<!-- javaScript для интерактивной подсветки пунктов меню -->
+			<script type="text/javascript" src="/static/javascripts/topmenu.js"></script>
+			<script type="text/javascript" src="/static/javascripts/jqfunc.js"></script>
+
+		</body>
+</html>
